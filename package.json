@@ -1,0 +1,24 @@
+{
+  "type":"module",
+  "name": "modulo_email_final",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "nodemailer": "^6.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ezesalo/Modulo_Email_Final_TP2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ezesalo/Modulo_Email_Final_TP2/issues"
+  },
+  "homepage": "https://github.com/ezesalo/Modulo_Email_Final_TP2#readme"
+}
