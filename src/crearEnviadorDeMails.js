@@ -12,7 +12,7 @@ import nodemailer from 'nodemailer';
  * @param {string} pass - Constraseña del mail (puede ser la contraseña para aplicaciones).
  */
 
-function conectarCuenta(mail, pass){
+function crearEnviadorDeMails(mail, pass){
   
     const transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
@@ -81,4 +81,4 @@ function conectarCuenta(mail, pass){
 }
 
 
-export {conectarCuenta}
+export {crearEnviadorDeMails}

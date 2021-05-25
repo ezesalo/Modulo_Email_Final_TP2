@@ -1,5 +1,5 @@
 import "dotenv/config.js"
-import {conectarCuenta} from "./conectarCuenta.js"
+import {crearEnviadorDeMails} from "./crearEnviadorDeMails.js"
 import {mailHtml} from "../test/mailHtmlSolo.js"
 import {mailHtmlImagen} from "../test/mailHtmlConImagen.js"
 
@@ -7,11 +7,11 @@ import {mailHtmlImagen} from "../test/mailHtmlConImagen.js"
 
 function main (){
 //Prueba con variables de entorno. Lo tengo que seguir viendo con el profe
-//const cuentaClub = conectarCuenta(process.env.USUARIO, process.env.CONSTRSENA)
+//const cuentaClub = crearEnviadorDeMails(process.env.USUARIO, process.env.CONSTRSENA)
 
 
 //Prueba sin variables de entorno para mail y contraseña
-const cuentaClub = conectarCuenta("clubortemail@gmail.com", "wmhxyrhimevxswoz")
+const cuentaClub = crearEnviadorDeMails("clubortemail@gmail.com", "wmhxyrhimevxswoz")
 
 //cuentaClub.enviarConTexto(`remitente`, `ezesalo@gmail.com`, `Prueba Text`, `Prueba con texto plano`)
 
