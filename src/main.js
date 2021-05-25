@@ -1,15 +1,23 @@
-import {sendEmail} from "./sendEmail.js"
-import {messageHtml} from "./mail.js"
-import 'dotenv/config.js'
+import "dotenv/config.js"
+import {conectarCuenta} from "./conectarCuenta.js"
+import {mailHtml} from "../test/mailHtmlSolo.js"
+import {mailHtmlImagen} from "../test/mailHtmlConImagen.js"
 
 
 
 function main (){
-//const transporter = sendEmail(process.env.U, process.env.P)
-const transporter = sendEmail('clubortemail@gmail.com', 'wmhxyrhimevxswoz')
-//transporter.text(`remitente`, `ezesalo@gmail.com`, `Prueba Text`, `Prueba con texto plano`)
-//transporter.html(`remitente`, `ezesalo@gmail.com`, `Prueba Html`, messageHtml)
-transporter.file(`remitente`, `ezesalo@gmail.com`, `Prueba Html`, messageHtml, "https://www.adslzone.net/app/uploads-adslzone.net/2019/04/borrar-fondo-imagen-930x487.jpg")
+//Prueba con variables de entorno. Lo tengo que seguir viendo con el profe
+//const cuentaClub = conectarCuenta(process.env.USUARIO, process.env.CONSTRSENA)
+
+
+//Prueba sin variables de entorno para mail y contraseña
+const cuentaClub = conectarCuenta("clubortemail@gmail.com", "wmhxyrhimevxswoz")
+
+//cuentaClub.enviarConTexto(`remitente`, `ezesalo@gmail.com`, `Prueba Text`, `Prueba con texto plano`)
+
+//cuentaClub.enviarConHtml(`remitente`, `ezesalo@gmail.com`, `Prueba Html con imagen`, mailHtmlImagen)
+
+cuentaClub.enviarConAdjunto(`remitente`, `ezesalo@gmail.com`, `Prueba Adjunto`, mailHtml, "img.jpg", "https://www.adslzone.net/app/uploads-adslzone.net/2019/04/borrar-fondo-imagen-930x487.jpg")
 
 }
 

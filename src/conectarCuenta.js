@@ -1,7 +1,19 @@
 import nodemailer from 'nodemailer';
 
-function sendEmail(mail, pass){
-       
+/**
+ * Al trabajar con enviarConAdjunto contemplar lo siguiente:
+ * 
+ * html: Cuerpo del mail html.  
+ * 
+ * nombreDeArchivo: Nombre del archivo/imagen a adjuntar. Debe contener la extension, por ej: .img
+ * 
+ * url: Direccion de donde se encuentra el archivo/imagen
+ * @param {string} mail - Mail desde donde queremos enviar.
+ * @param {string} pass - Constraseña del mail (puede ser la contraseña para aplicaciones).
+ */
+
+function conectarCuenta(mail, pass){
+  
     const transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
         port: 465,
@@ -13,8 +25,8 @@ function sendEmail(mail, pass){
       });
 
       return{
-          text: async (from, to, subject, text) => {
-
+          
+          enviarConTexto: async (from, to, subject, text) => {
             const mailOptions = {
                 from: from,
                 to: to,
@@ -30,7 +42,7 @@ function sendEmail(mail, pass){
             } 
 
           },
-          html: async (from, to, subject, html) => {
+          enviarConHtml: async (from, to, subject, html) => {
             const mailOptions = {
                 from: from,
                 to: to,
@@ -45,14 +57,14 @@ function sendEmail(mail, pass){
                 console.log(`el mail no pudo ser enviado: ${err}`)
             }
           },
-          file: async (from, to, subject, html, url) => {
+          enviarConAdjunto: async (from, to, subject, html, nombreDeArchivo, url) => {
             const mailOptions = {
                 from: from,
                 to: to,
                 subject: subject,
                 html: html,
                 attachments:[{
-                    filename: `image.jpg`,
+                    filename: `${nombreDeArchivo}`,
                     path: `${url}`
                 }]
             }
@@ -63,20 +75,10 @@ function sendEmail(mail, pass){
             } catch (err) {
                 console.log(`el mail no pudo ser enviado: ${err}`)
             }
-          }
-
-        
+          }    
       }
 
 }
-    // transporter.sendMail(emailBody, (err, data) =>{
-    //       if(err){
-    //           console.log('Ocurrio un error', err)
-    //       }else{
-    //           console.log('Mail enviado')
-    //       }
-    //   })}
 
 
-
-export {sendEmail}
+export {conectarCuenta}
