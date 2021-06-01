@@ -13,11 +13,11 @@ function main (){
 //Prueba sin variables de entorno para mail y contraseña
 const cuentaClub = crearEnviadorDeMails("clubortemail@gmail.com", "wmhxyrhimevxswoz")
 
-//cuentaClub.enviarConTexto(`remitente`, `ezesalo@gmail.com`, `Prueba Text`, `Prueba con texto plano`)
+//cuentaClub.enviarConTexto(`ezesalo@gmail.com`, `Prueba Text`, `Prueba con texto plano`)
 
-//cuentaClub.enviarConHtml(`remitente`, `ezesalo@gmail.com`, `Prueba Html con imagen`, mailHtmlImagen)
+//cuentaClub.enviarConHtml(`ezesalo@gmail.com`, `Prueba Html con imagen`, mailHtmlImagen)
 
-cuentaClub.enviarConAdjunto(`remitente`, `ezesalo@gmail.com`, `Prueba Adjunto`, mailHtml, "img.jpg", "https://www.adslzone.net/app/uploads-adslzone.net/2019/04/borrar-fondo-imagen-930x487.jpg")
+cuentaClub.enviarConAdjunto(`ezesalo@gmail.com`, `Prueba Adjunto`, mailHtml, "img.jpg", "https://www.adslzone.net/app/uploads-adslzone.net/2019/04/borrar-fondo-imagen-930x487.jpg")
 
 }
 
